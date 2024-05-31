@@ -1,0 +1,23 @@
+class Solution{
+    // Function for finding maximum and value pair
+    public static int lenOfLongSubarr (int A[], int N, int K) {
+        //Complete the function
+        int len=0;
+        HashMap<Integer,Integer> hmap=new HashMap();
+        int sum=0;
+        hmap.put(0,0);
+       for(int i=1;i<=N;i++)
+       {
+           sum+=A[i-1];
+           if(hmap.containsKey(sum-K))
+           {
+               int currlen=i-hmap.get(sum-K);
+               len=Math.max(len,currlen);
+           }
+           // the above logic is only valid for non zero positivies number
+            // 2 0 0 3 where k=3 it will give incorrect
+          if(!hmap.containsKey(sum))
+            hmap.put(sum,i);       }
+       return len;   
+    }  
+}
