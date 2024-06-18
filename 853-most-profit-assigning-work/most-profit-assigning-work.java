@@ -16,11 +16,12 @@ class Solution {
         }
         
         int maxprofit=0;
-        for (int i = 0; i < worker.length; i++) 
+        for (int i=0;i<worker.length;i++) 
         {
-        Integer key = tmap.floorKey(worker[i]);
-            if(key != null) 
-            maxprofit+= tmap.get(key);
+            
+            Integer key=tmap.floorKey(worker[i]);
+            if(key!=null)
+                maxprofit+=tmap.get(key);
         }
         
         return maxprofit;   
