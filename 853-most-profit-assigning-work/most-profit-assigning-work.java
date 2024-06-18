@@ -16,24 +16,14 @@ class Solution {
         }
         
         int maxprofit=0;
-        Map.Entry<Integer, Integer> entry = null;
-        for(int i=0;i<worker.length;i++)
+        for (int i = 0; i < worker.length; i++) 
         {
-            if(tmap.containsKey(worker[i]))
-            {
-                 maxprofit+=tmap.get(worker[i]);
-               
-            }
-            else
-            {
-                entry=tmap.floorEntry(worker[i]);
-                if(entry!=null)
-                maxprofit+=entry.getValue();
-            }
+        Integer key = tmap.floorKey(worker[i]);
+            if(key != null) 
+            maxprofit+= tmap.get(key);
         }
         
-        return maxprofit;
-        
+        return maxprofit;   
         
     }
 }
